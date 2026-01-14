@@ -3,11 +3,11 @@ immich.home {
 
     tls internal
 
-    reverse_proxy http://127.0.0.1:2283 {
-        header_up Host {http.request.host}
-        header_up X-Forwarded-Host {http.request.host}
-        header_up X-Forwarded-Proto {http.request.scheme}
-        header_up X-Forwarded-Port {http.request.port}
-        header_up X-Real-IP {http.request.remote.host}
+    reverse_proxy 127.0.0.1:2283 {
+        header_up Host {host}
+        header_up X-Forwarded-Host {host}
+        header_up X-Forwarded-Proto https
+        header_up X-Forwarded-Port 443
+        header_up Origin https://immich.home
     }
 }
